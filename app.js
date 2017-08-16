@@ -24,6 +24,6 @@ app.post('/upload', upload.single('file'), function(req, res, next){
 
 
 
-app.listen(3000, function(){
+app.listen(3000 || process.env.PORT, function(){
     console.log('Server is working');
 });
