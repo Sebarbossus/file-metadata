@@ -8,12 +8,7 @@ var app = module.exports = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-app.get('/', function(req, res, next){
-    res.sendFile(__dirname + '/index.html');
-});
-
-//Or if you have the static files in a folder called "public":
-// app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public'));
 //This way of serving static files is nicer and more common.
 
 app.post('/upload', upload.single('file'), function(req, res, next){
@@ -24,6 +19,6 @@ app.post('/upload', upload.single('file'), function(req, res, next){
 
 
 
-app.listen(3000, function(){
+app.listen(3000 || process.env.PORT || process.env.argv, function(){
     console.log('Server is working');
 });
