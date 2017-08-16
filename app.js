@@ -15,10 +15,6 @@ app.post('/upload', upload.single('file'), function(req, res, next){
    return res.json(req.file);
 });
 
-
-
-
-
 app.listen(3000 || process.env.PORT || process.env.argv, function(){
     console.log('Server is working');
 });
